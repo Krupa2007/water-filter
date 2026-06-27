@@ -20,6 +20,8 @@ from filapp.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/', login ,name='login'),
+    path('login/', login_page ,name='login'),
+    path('register/',register, name='register'),
     path('forgot/', forgot ,name='forgot'),
+    path('dashboard/', dashboard ,name='dashboard'),
 ]

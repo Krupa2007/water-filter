@@ -32,6 +32,15 @@
              <!--security -->
             <h2>Login </h2>
             <hr>
+            {% if messages %}
+                 {% for message in messages %}
+                <div class="alert alert-primary" role="alert">
+                    
+                    {{ message }}
+                  
+                </div>
+                {% endfor %}
+                {% endif %}
             <div class="mt-3"> 
                 <label for="exampleInputEmail1">Username</label>
                 <input name="pets_breed " required  type="text" class="form-control">
@@ -44,7 +53,7 @@
             </div> 
             <br>   
                  
-                 <button type="button" class="btn btn-primary">Sing In </button>
+                 <button type="submit" class="btn btn-primary">Sing In </button>
                
             <br>
             <p>Don't have account?<a href="/register/" style="text-decoration: none;"><b>Register</b></a>

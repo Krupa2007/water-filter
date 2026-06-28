@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Water Filter QR Code</title>
+
+    <style>
+
+        body{
+            font-family:Arial, sans-serif;
+            background:#e6f7ff;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+        }
+
+        .container{
+            background:white;
+            width:420px;
+            padding:30px;
+            border-radius:15px;
+            text-align:center;
+            box-shadow:0 0 15px rgba(0,0,0,0.2);
+        }
+
+        img{
+            width:250px;
+            height:250px;
+            margin:20px;
+        }
+
+        h1{
+            color:#0077b6;
+        }
+
+        .status{
+            margin-top:20px;
+            text-align:left;
+            font-size:18px;
+        }
+
+        .status p{
+            margin:10px 0;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Water Filter QR Code</h1>
+
+<img src="{% static 'images/qrcode.png' %}" alt="QR Code">
+<div class="status">
+
+<p><b>Device ID:</b> WF-001</p>
+
+<p><b>Water Quality:</b> Excellent</p>
+
+<p><b>Filter Health:</b> 92%</p>
+
+<p><b>System Status:</b> Online</p>
+
+<p><b>Last Updated:</b> Just Now</p>
+
+</div>
+
+</div>
+
+</body>
+</html>

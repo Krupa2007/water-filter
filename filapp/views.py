@@ -58,6 +58,9 @@ def register(request):
 
 def forgot(request):
    return render(request,  "forgot.html")
+
+def home(request):
+   return render(request,  "home.html")
  
 def dashboard(request):
     return render(request, "dashboard.html") 

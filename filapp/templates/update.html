@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pets</title>
+    <title>water</title>
      <!-- Include Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
      <style>
@@ -31,24 +31,28 @@
         <form class="col-6 mx-auto card p-3 shadow-lg " method="post"  enctype="multipart/form-data">
             {% csrf_token %}    
              <!--security -->
-            <h2>Add Details </h2>
+            <h2>Update Details </h2>
             <hr>
             <div class="mt-3"> 
                 <label for="exampleInputEmail1">Name</label>
-                <input name="name" required type="text" class="form-control">
+                <input    class="form-control" name="name"  value="{{ add.name }}"  required type="text" >
             </div>
              
                 
             <div class="mt-3">
                <label for="exampleInputEmail1">Email address</label>
-                   <input  name="email"  required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                   <input  name="email"  value="{{ add.email }}"   required type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
             </div>
             <div class="mt-3">
                 <label for="exampleInputPassword1">Contact</label>
-                <input  name="contact" required type="text" class="form-control"><br>
+                <input  name="contact" value="{{ add.contact }}"   required type="text" class="form-control"><br>
             </div>
                 
-            <button type="submit" class="btn btn-primary">Add Details </button>
+            <button type="submit" class="btn btn-primary">Update </button>
             <a href="/main/" style="text-decoration: none;">click togo home</a>
             <hr>
         </form>
+
+    </div>   
+   </body>
+   </html>     

@@ -21,6 +21,9 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.conf import settings
 from django.conf.urls.static import static
+from django.urls import path
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +37,7 @@ urlpatterns = [
     path('water_quality/',water_quality ,name='water_quality'),
     path('delete-pet/<id>/', delete_pet ,name='delete_pet'),
     path('add/', add ,name='add'),
+    path('update/<int:id>/', update ,name='update'),
     
     
     

@@ -100,3 +100,24 @@ def  delete_pet(request, id):
     queryset = Add.objects.get(id = id)
     queryset.delete()
     return redirect('/main')
+
+def update(request, id):
+    queryset = Add.objects.get(id = id)
+
+    if request.method=="POST":
+       data = request.POST
+       name = data.get('name')
+       email = data.get('email')
+       contact = data.get('contact')
+
+       queryset.name= name
+       queryset.email= email
+       queryset.contact= contact
+
+
+       queryset.save()
+       context = {'add': queryset}
+       return redirect('/update/')
+
+    return render(request, "update.html",context)
+    

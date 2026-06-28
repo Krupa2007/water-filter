@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate , login
 from .models import *
+from reportlab.pdfgen import canvas
+from datetime import datetime
 
 # Create your views here.
 def login_page(request):
@@ -120,4 +122,35 @@ def update(request, id):
        return redirect('/update/')
 
     return render(request, "update.html",context)
+
+
+def analytics_view(request):
+    return render(request, "analytics.html")
+
+
+
+def export_page(request):
+    return render(request, "export.html")
+
+
+def export_pdf(request):
+    response = HttpResponse(content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="dashboard_report.pdf"'
+
+    p = canvas.Canvas(response)
+
+    p.setFont("Helvetica-Bold", 16)
+    p.drawString(100, 800, "Water Filter Monitoring Dashboard")
+
+    p.setFont("Helvetica", 12)
+    p.drawString(100, 780, f"Generated on: {datetime.now()}")
+
+    p.drawString(100, 740, "System Status: ONLINE")
+    p.drawString(100, 720, "Water Quality: Excellent")
+    p.drawString(100, 700, "Filter Health: 92%")
+
+    p.showPage()
+    p.save()
+
+    return response
     

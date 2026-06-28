@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate , login
+from .models import *
 
 # Create your views here.
 def login_page(request):
@@ -63,7 +64,9 @@ def home(request):
    return render(request,  "home.html")
 
 def main(request):
-   return render(request,  "main.html")
+   quearyset = Add.objects.all()
+   context = {'add': quearyset}
+   return render(request,  "main.html", context)
 
 def qr(request):
    return render(request,  "qrcode.html")
@@ -72,4 +75,28 @@ def water_quality(request):
    return render(request,  "water_quality.html")
  
 def dashboard(request):
-    return render(request, "dashboard.html") 
+    return render(request, "dashboard")
+
+def add(request):
+    if request.method=="POST":
+        data = request.POST
+        name = data.get('name')
+        email = data.get('email')
+        contact = data.get('contact')
+
+        Add.objects.create(
+            name= name,
+            email = email,
+            contact = contact,
+        )
+
+    quearyset = Add.objects.all()
+    context = {'add': quearyset}
+
+    return render(request, "add.html" , context)
+
+
+def  delete_pet(request, id):
+    queryset = Add.objects.get(id = id)
+    queryset.delete()
+    return redirect('/main')

@@ -23,6 +23,42 @@
             margin-right: 20px;
             border-radius: 5%; 
         }
+        /* ===========================
+   Cards
+=========================== */
+
+            .cards{
+                    margin-top:30px;
+                    display:grid;
+                    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+                    gap:20px;
+             }
+
+              .card{
+                    background:white;
+                    border-radius:15px;
+                    padding:25px;
+                    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+                    transition:0.3s;
+                }
+
+                .card:hover{
+                    transform:translateY(-6px);
+                }
+
+                .card h3{
+                    color:#555;
+                    margin-bottom:12px;
+                }
+
+                .card h2{
+                    color:#0b5ed7;
+                    margin-bottom:10px;
+                }
+
+                .card p{
+                    color:#777;
+                }
 
     </style>
 </head>
@@ -50,8 +86,53 @@
      "><b>WATER FILTER </b></h1>
      <br>
      <p style="font-size: 20px; font-family: 'Times New Roman', Times, serif; color: white;">"Pure Water, Healthier Life."<br>
-        Enjoy clean, safe, and refreshing drinking water with our advanced water filtration solutions. Protect your family's health with every drop.</p>
-        
+        Enjoy clean, safe, and refreshing drinking water with our advanced water filtration solutions. Protect your family's health with every drop.</p>     
+</div>
+<div class="cards">
+
+        <div class="card">
+
+            <h3>System Status</h3>
+
+            <h2>ONLINE</h2>
+
+            <p>System is operating normally.</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Water Quality</h3>
+
+            <h2>Excellent</h2>
+
+            <p>Safe for drinking.</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Filter Health</h3>
+
+            <h2>92%</h2>
+
+            <p>Filter is in good condition.</p>
+
+        </div>
+
+        <div class="card">
+
+            <h3>Alerts</h3>
+
+            <h2>No Alerts</h2>
+
+            <p>Everything is functioning properly.</p>
+
+        </div>
+
+    </div>
+
+
 </div>
 </body>
 </html>

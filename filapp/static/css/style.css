@@ -214,7 +214,7 @@ table tr:hover{
     background:#f2f7ff;
 }
 
-/* Activity */
+/* Activity */ 
 
 .activity{
     list-style:none;
@@ -225,7 +225,7 @@ table tr:hover{
     border-bottom:1px solid #eee;
 }
 
-/* Responsive */
+/* Responsive */ 
 
 @media(max-width:900px){
 

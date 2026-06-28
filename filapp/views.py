@@ -61,6 +61,9 @@ def forgot(request):
 
 def home(request):
    return render(request,  "home.html")
+
+def main(request):
+   return render(request,  "main.html")
  
 def dashboard(request):
     return render(request, "dashboard.html") 

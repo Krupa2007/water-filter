@@ -22,7 +22,7 @@ def login_page(request):
         
         else:
             login( request , user)
-            return redirect('/dashboard/')
+            return redirect('/main/')
         
 
 
@@ -64,6 +64,12 @@ def home(request):
 
 def main(request):
    return render(request,  "main.html")
+
+def qr(request):
+   return render(request,  "qrcode.html")
+
+def water_quality(request):
+   return render(request,  "water_quality.html")
  
 def dashboard(request):
     return render(request, "dashboard.html") 

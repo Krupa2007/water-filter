@@ -26,4 +26,6 @@ urlpatterns = [
     path('dashboard/', dashboard ,name='dashboard'),
     path('home/', home ,name='home'),
     path('main/', main ,name='main'),
+    path('qrcode/', qr ,name='qrcode'),
+    path('water_quality/',water_quality ,name='water_quality'),
 ]

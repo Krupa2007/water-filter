@@ -37,7 +37,7 @@ urlpatterns = [
     path('water_quality/',water_quality ,name='water_quality'),
     path('delete-pet/<id>/', delete_pet ,name='delete_pet'),
     path('add/', add ,name='add'),
-    path('update/<int:id>/', update ,name='update'),
+    path('update/<int:id>/', update_data ,name='update'),
      path('analytics/', analytics_view, name='analytics'),
       path('export/', export_page, name='export_pdf'),
     

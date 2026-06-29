@@ -103,7 +103,7 @@ def  delete_pet(request, id):
     queryset.delete()
     return redirect('/main')
 
-def update(request, id):
+"""def update(request, id):
     queryset = Add.objects.get(id = id)
 
     if request.method=="POST":
@@ -119,9 +119,33 @@ def update(request, id):
 
        queryset.save()
        context = {'add': queryset}
-       return redirect('/update/')
+       return redirect('/main/')
 
     return render(request, "update.html",context)
+
+"""
+from django.shortcuts import render, redirect, get_object_or_404
+ # Double-check if your model class name is 'pet' or 'Pet'
+
+def update_data(request, id):
+    # 1. Use get_object_or_404 so Django handles missing IDs gracefully instead of crashing
+    record = get_object_or_404(Add, id=id)
+    
+    # 2. When the form is submitted via POST
+    if request.method == "POST":
+        record.name = request.POST.get('name')
+        record.contact = request.POST.get('contact')
+        record.email = request.POST.get('email')
+        
+        # 3. Save the modifications directly back to that existing row
+        record.save() 
+        
+        # 4. Redirect back to your main table display page
+        return redirect('/main/') 
+        
+    # 5. When they first load the page, render update.html with the existing record values
+    return render(request, 'update.html', {'record': record})
+
 
 
 def analytics_view(request):

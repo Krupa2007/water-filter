@@ -42,9 +42,6 @@ urlpatterns = [
       path('export/', export_page, name='export_pdf'),
     
     
-    
-
-    
 ]
 
 if settings.DEBUG:

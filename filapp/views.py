@@ -67,6 +67,9 @@ def home(request):
 
 def main(request):
    quearyset = Add.objects.all()
+   if request.GET.get('search'):
+        quearyset = quearyset.filter(name__icontains = request.GET.get('search')) 
+
    context = {'add': quearyset}
    return render(request,  "main.html", context)
 
@@ -93,6 +96,13 @@ def add(request):
         )
 
     quearyset = Add.objects.all()
+    
+   # if request.GET.get('search'):
+    #    quearyset = quearyset.filter(name__icontains = request.GET.get('search')) 
+
+
+
+
     context = {'add': quearyset}
 
     return render(request, "add.html" , context)
@@ -178,3 +188,5 @@ def export_pdf(request):
 
     return response
     
+def profile(request):
+   return render(request,  "profil.html")

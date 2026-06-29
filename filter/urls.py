@@ -40,6 +40,7 @@ urlpatterns = [
     path('update/<int:id>/', update_data ,name='update'),
      path('analytics/', analytics_view, name='analytics'),
       path('export/', export_page, name='export_pdf'),
+      path('profile/', profile, name='profile'),
     
     
 ]

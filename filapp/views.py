@@ -161,6 +161,9 @@ def update_data(request, id):
 def analytics_view(request):
     return render(request, "analytics.html")
 
+def model(request):
+    return render(request, "model.html")
+
 
 
 def export_page(request):
@@ -190,3 +193,30 @@ def export_pdf(request):
     
 def profile(request):
    return render(request,  "profil.html")
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def update_profile(request ,id):
+    if request.method == 'POST':
+        profile = request.user.profile
+        
+        profile.description = request.POST.get('description')
+        profile.contact = request.POST.get('contact')
+        
+        # Check if the user clicked "Remove Photo"
+        if request.POST.get('clear_image') == 'true':
+            # This deletes the image file from media storage and database
+            if profile.image:
+                profile.image.delete(save=False) 
+            profile.image = None
+        # Otherwise, check if they uploaded a brand new image
+        elif request.FILES.get('profile_pix'):
+            profile.image = request.FILES['profile_pix']
+            
+        profile.save()
+        return redirect('profile')
+        
+    return render(request, 'profile.html')

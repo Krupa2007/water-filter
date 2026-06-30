@@ -36,11 +36,12 @@ urlpatterns = [
     path('qrcode/', qr ,name='qrcode'),
     path('water_quality/',water_quality ,name='water_quality'),
     path('delete-pet/<id>/', delete_pet ,name='delete_pet'),
-    path('add/', add ,name='add'),
-    path('update/<int:id>/', update_data ,name='update'),
+    path('add/', add ,name='add_profile'),
+    path('update/<int:id>/', update_data ,name='update_profile'),
      path('analytics/', analytics_view, name='analytics'),
       path('export/', export_page, name='export_pdf'),
       path('profile/', profile, name='profile'),
+      path('model/', model, name='model'),
     
     
 ]

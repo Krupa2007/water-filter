@@ -1,0 +1,105 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+<style>
+    body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background: #f4f7f6;  }
+    .purifier { width: 300px; border: 4px solid #2c3e50; border-radius: 10px; padding: 20px; background: white; text-align: center; }
+    .stage { margin: 10px 0; padding: 15px; border-radius: 5px; background: #ecf0f1; transition: background 0.5s; }
+    .active { background: #3498db; color: white; font-weight: bold; }
+    #status { margin-top: 15px; font-weight: bold; color: #2c3e50; }
+    button { padding: 10px 25px; cursor: pointer; background: #27ae60; color: white; border: none; border-radius: 5px; }
+</style>
+</head>
+<body>
+
+  <h2>Electric RO-UV-UF Purifier</h2>
+  <div class="purifier">
+    <div id="stage1" class="stage">1. Sediment & Carbon Filter</div>
+    <div id="stage2" class="stage">2. RO Membrane (Electric Pump)</div>
+    <div id="stage3" class="stage">3. UV Chamber (Disinfection)</div>
+    <div id="stage4" class="stage">4. UF Filter (Final Polish)</div>
+    <div id="status">Status: Waiting for Power...</div>
+  </div>
+
+  <br>
+  <button onclick="runPurifier()">Start Purification</button>
+
+  <script>
+    function runPurifier() {
+      const stages = ['stage1', 'stage2', 'stage3', 'stage4'];
+      const status = document.getElementById('status');
+      
+      stages.forEach((id, index) => {
+        setTimeout(() => {
+          document.getElementById(id).classList.add('active');
+          status.innerText = "Status: Purifying in Stage " + (index + 1) + "...";
+          if(index === 3) status.innerText = "Status: Water is Pure and Safe!";
+        }, (index + 1) * 1000);
+      });
+    }
+  </script>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+    body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; background: #f4f7f6; }
+    
+    .purifier { width: 300px; border: solid; border-radius: 10px; padding: 20px; background-image: url("https://imgs.search.brave.com/ZhbpwcBU0MmTXAkbAE0xnjPyO7wOpxZWHomHeX0P7BM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA0LzU2LzEwLzI1/LzM2MF9GXzQ1NjEw/MjUxMF9LSXlJSG5t/b2huVFp0OE9RcVRW/Ylo2SVlnc3pweWpS/Yi5qcGc"); text-align: center;  }
+    
+    .stage { 
+        margin: 10px 0; padding: 15px; border-radius: 5px; 
+        background: #ecf0f1; transition: all 0.5s; 
+        position: relative; overflow: hidden;
+    }
+
+    /* This class adds the water flow effect */
+    .active { 
+        background: linear-gradient(45deg, #3498db, #5dade2, #3498db); 
+        background-size: 200% 200%;
+        animation: flowEffect 2s linear infinite;
+        color: white; font-weight: bold;
+    }
+
+    @keyframes flowEffect {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    #status { margin-top: 15px; font-weight: bold; color: #2c3e50; }
+    button { padding: 10px 25px; cursor: pointer; background: #27ae60; color: white; border: none; border-radius: 5px; }
+</style>
+</head>
+<body>
+
+  <h2>Electric RO-UV-UF Purifier</h2>
+  <div class="purifier">
+    <div id="stage1" class="stage">1. Sediment & Carbon Filter</div>
+    <div id="stage2" class="stage">2. RO Membrane (Electric Pump)</div>
+    <div id="stage3" class="stage">3. UV Chamber (Disinfection)</div>
+    <div id="stage4" class="stage">4. UF Filter (Final Polish)</div>
+    <div id="status">Status: Waiting for Power...</div>
+  </div>
+
+  <br>
+  <button onclick="runPurifier()">Start Purification</button>
+
+  <script>
+    function runPurifier() {
+      const stages = ['stage1', 'stage2', 'stage3', 'stage4'];
+      const status = document.getElementById('status');
+      
+      stages.forEach((id, index) => {
+        setTimeout(() => {
+          document.getElementById(id).classList.add('active');
+          status.innerText = "Status: Purifying in Stage " + (index + 1) + "...";
+          if(index === 3) status.innerText = "Status: Water is Pure and Safe!";
+        }, (index + 1) * 1200);
+      });
+    }
+  </script>
+</body>
+</html>
